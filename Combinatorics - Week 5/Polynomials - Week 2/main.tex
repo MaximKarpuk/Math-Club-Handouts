@@ -1,0 +1,314 @@
+\documentclass[11pt]{article}
+\usepackage[sexy, fancy, mdthm]{evan}
+\usepackage{hyperref}
+\usepackage{polynom}
+
+\begin{document}
+
+\title{Week 2 - Polynomials}
+\maketitle
+
+\section*{Introduction}
+\par Now that we're on the second week and you've hopefully gotten a refresher on your algebra skills, I'd like to now talk about polynomials, which are a large topic in competition math, and one of my favorites. Though due to the expansiveness of the topic, 
+I won't be able to cover everything that I would like to cover so at the bottom of this handout I attachhed some supplementary readings or videos that I would highly recommend you look through. Also a short reminder to please have some sort of writing material ready when reading this handout as writing out the math can help tremendeously with your understanding
+if you ever get stuck.
+
+\section{Polynomials}
+\subsection*{Motivation}
+\par I'd like to begin by talking about a problem from last weeks handout which draws very nicely into the first topic.
+\begin{example}
+    A rectangular prism has volume 215, surface area of 226, and the sum of its 12 sides is 116, find
+    the volume of the prism when each of its sides are increased by one unit.
+\end{example}
+If we let $\ell, w, h$ be the length, width, and height of this prism, the problem setup gives us 3 equations:
+\begin{align}
+    \begin{cases}
+        \ell w h & = 215 \\
+        2(\ell w + \ell h + wh) & = 226 \\
+        4(\ell + w + h) = & = 116.
+    \end{cases}
+\end{align}
+Trying to solve this system normally is futile; instead, we'll try something drastic. Consider the polynomial $p(x) = (x+\ell)(x+w)(x+h)$. If we multiply this polynomial out, we get that $$p(x)=x^3 + (\ell + w + h)x^2 + (\ell w + \ell h + wh)x + \ell w h.$$ The coefficients
+of this polynomial look shockingly similar to the given equations, and the expression we're asked to find is $(1+\ell)(1+w)(1+h)$ which is equivalent to $p(1)$. Therefore, we can find this value by solving for the coefficnets of the polynomial and plugging in one for the answer. Thus, the answer is
+\[
+p(1) = 1 + (29)(1)^2 + (113)(1) + 215 = 318.
+\] Was this a coincidence? No, by the end of this section I'll answer this question of what the relationship is between these 3 equations and where this polynomial comes from. 
+
+\subsection{Relationships betweens Roots and Coefficients and Vieta's Formula}
+\par As the title suggests, The main idea of this section is to relate the roots and coefficients of a polynomial. Specifically, we're trying to find a formula for the coefficients of a polynomial based on its roots. We can start by doing this with the simplest non-trivial case: a quadratic. Let quadratic $ax^2+bx+c$ have roots $r$ and $s$, therefore we have
+\[
+a(x-r)(x-s) = ax^2 - a(r+s)x + ars = ax^2+bx+c.
+\] As we have that the $x$ terms and constant terms must match, this gives us that
+\begin{align}
+    \begin{cases}
+        r+s & = -\frac{b}{a} \\
+        rs & = \frac{c}{a}.
+    \end{cases}
+\end{align}
+This seems quite obvious at first, especially if you have ample experience with multiplying out quadratics, but let me give an example problem that shows how this can be useful.
+\begin{example}
+    Let quadratic $q(x) = 2x^2-3x+7$ have roots $r$ and $s$. Find $\frac{1}{r}+\frac{1}{s}$.
+\end{example}
+\par Note $\frac{1}{r} + \frac{1}{s} = \frac{r+s}{rs}$. This means that by the equations above that $\frac{1}{r} + \frac{1}{s} = \frac{\frac{3}{2}}{\frac{7}{2}} = \frac{3}{7}$. It's important to note that this process doesn't even need us to calculate the roots of the polynomial.
+While it is still certainly possible to solve for the roots and calculate the expression manually, that process is much more intensive. Although this method of relating the roots to the coefficients certainly saves us time when solving problems it doesn't seem like it does much more, 
+but the main use of this idea comes into play when we consider a cubics and other high degree polynomials.
+
+
+\indent Let $p(x)=ax^3+bx^2+cx+d$ be a cubic polynomial with roots $r, s, \text{and } t$.
+We get that
+\[
+p(x) = a(x-r)(x-s)(x-t) = ax^3 - a(r+s+t)x^2 + a(rs + rt + st)x - arst.
+\] This gives us 3 equations
+\begin{align}
+    \begin{cases}
+        r+s+t & = -\frac{b}{a} \\
+        rs + rt + st &= \frac{c}{a} \\
+        rst &= -\frac{d}{a}.
+    \end{cases}
+\end{align}
+These 3 equations look reminiscent of the 3 equations earlier in this handout, and for good reason. Whenever you see a system such as the ones shown earlier in (1), (2), or (3), what this would mean is that the equations in the system correspond to the coefficients of a polynomial with
+ roots equal to the variables in the system. Let me give an example that shows how this way of defining the coefficients can be useful.
+
+ \begin{example}
+    Let the 3 roots of $x^3-4x^2+5x-7$ be $r, s, \text{and }, t$. Evaluate
+    \[
+    \frac{1}{r^2} + \frac{1}{s^2} + \frac{1}{t^2}.
+    \]
+ \end{example}
+ This is a typical competition problem. The key to solving these type of problems is to try to logically look one step at a time. We can simplify the sum we wish to find as 
+ \[
+ \frac{r^2s^2 + r^2t^2 + s^2t^2}{r^2s^2t^2}.
+ \]
+ The denominator of this fraction is clearly $(-7)^2=49=(rst)^2$, so we just need to find the numerator. The term looks very similar to $(rs+rt+st)^2$ so we start by evaluating that. Notice
+ \[
+ (rs+rt+st)^2= 25 = r^2s^2+r^2t^2+s^2t^2 + 2rst(r+s+t)
+ \] and we can observe that $rst=-7$ and $r+s+t = 4$ so
+ \begin{equation*}
+    \begin{aligned}
+        25 + 2(7)(4) = 81   & = r^2s^2 + r^2t^2 + s^2t^2 \Longrightarrow \\
+        \frac{1}{r^2}+\frac{1}{s^2}+\frac{1}{t^2} & =\frac{81}{49}.
+    \end{aligned}
+ \end{equation*}
+ If you're having trouble doing some of the computations such as expanding $(rs+rt+st)^2$, I wouldn't worry about it that much as expanding these expressions quickly is a skill you pick up through experience (but it doesn't hurt to do some calculations for practice).
+ \subsubsection*{Generalizing Further}
+ The relationship between roots of polynomials and their coefficients can be generalized in an $n$ degree polynomial. While I think the definition is rather daunting for beginners, I'll explain what the formula is saying with a practical example.
+ \begin{definition}{(Vieta's Formula)}
+    Let $p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$ be a polynomial with coefficents $a_n, a_{n-1}, \cdots, a_0$ and roots $r_n, r_{n-1}, \cdots, r_1$. Then we have the relationship
+    \[
+    \sum_{1 \leq i_1 < i_2 < \cdots i_k \leq n} \bigg( \prod_{j=1}^k r_{i_j}\bigg) = (-1)^k \frac{a_{n-k}}{a_n}.
+    \]
+ \end{definition}
+ As you can see, this formula is rather difficult to interpret, and some of you probably don't even know some of the notation used to define it. So I'll give a practical explanation what the formula is saying and how you calculate the left side. 
+ \begin{example}
+    If polynomial $p(x)$ has $\deg p(x) = 5$ (This just says degree of $p(x)$ = 5), leading coefficent of one, and the roots of $p(x)$ are $a, b, c, d, \text{and } e$, then using Vieta's Formula, find the equation for the coefficient of $x$.
+ \end{example}
+ We'll call the coefficient of $x$, $s$. To find $s$, we have to find the sum of all distinct 4 term products where a 4 term product just refers to a product of 4 different roots \footnote{
+    We know the coefficient is made up of 4 term products as $n-k$ = 4, where $n$ is the degree of the polynomial and $k$ is the degree of the coefficent.
+ }. We can quickly find all 5 products, $abcd, acde, abde, abce, bcde$. Now we just sum up all the products and multiply by $(-1)^4=1$, where the power on -1 is determined by how many terms are in the product, in this case 4. We get that 
+ \[
+    abcd+acde+abde+abce+bcde=\frac{s}{1} = s.
+ \]
+
+ \begin{example}{(MAO 1992)}
+    If 3 roots of $x^4+Ax^2+Bx+C=0$ are -1, 2, 3, the what is the value of $2C-AB$?
+ \end{example}
+We first observe that we are given 3 roots. This prompts us to ask, can we find the 4th root? Well, we see that as the coefficient of $x^3$ is zero and we have by Vieta's Formula,
+\[
+-1 + 2 + 3 + r = 0 \Longrightarrow r = -4.
+\]
+Therefore, our polynomial can be factored as
+\begin{equation*}
+    \begin{aligned}
+    (x+1)(x-2)(x-3)(x+4) & = x^4 - 15x^2 + 10x + 24 \\
+    2C-AB & = 48 +150 = 198.    
+    \end{aligned}
+\end{equation*}
+\subsection{Polynomial Division}
+ Polynomial division, as it sounds like, is an a division algorihtm for polynomials. How does it work? well, exactly like regular division. You take the highest degree term in the polynomial divisior and you multiply it to get the largest coefficient in the polynomial dividend, subtract and repeat again. Let me give an example. 
+\center \polylongdiv{x^2+7x+6}{x+1} \\ \raggedright Let's go step by step for this problem, we see that the largest degree term in $x^2+7x+6$ is $x^2$ and the largest degree term in $x+1$ is $x$. Therefore, we would have to multiply by $x$ to get $x^2$. Thus, we would subtract $x(x+1)$ from $x^2+7x+6$. This leaves us with $6x+6$. Repeating this process,
+we see that $x$ goes into $6x$, 6 times so we would subtract by $6x+6$ which leasves us with zero. Thus our quotient is $x+6$. I'll repeat this one more time but this time with a bigger polynomial.
+\\
+ \center \polylongdiv{x^4+3x^3+7x^2+9x+7}{x^2+2x+3}
+ \\
+ \raggedright
+ Beginning, we see that the largest degree term in the divisor is $x^2$ and the largest degree in the dividend is $x^4$. Therefore, the divisor goes into the divided $x^2$ times. This means that we subtract $x^2(x^2+2x+3)=x^4+2x^3+3x^2$ from the dividend. leaving us with $x^3+4x^2+9x+7$. Again, the largest degree term is $x^3$ so the divisor goes into the dividend $x$ times so we subtract
+ $x(x^2+2x+3)=x^3+2x^2+3x$ which gives us $2x^2+6x+7$. The largest degree term is $2x^2$ so the divisor goes into the divident $2$ times. This means that we subtract $2(x^2+2x+3) = 2x^2+4x+6$ which leaves us with $2x+1$ Observe that the degree of $2x+1$ is smaller than the degree of $x^2+2x+3$; thus $2x+1$ is the remainder and $x^2+x+2$ is the quotient as we can't divide any further. Now that we discussed the
+ division algorithm, let me give the formal definition of polynomial division.
+\begin{definition}{(Polynomial Division)}
+    Let $P(x)$ be a polynomial with degree $n$ and $G(x)$ be a polynomial with degree $m$ Then we have that
+    \[
+        \frac{P(x)}{G(x)} = Q(x) + \frac{R(x)}{G(x)}
+    \]
+    where $Q(x)$ is called the quotient and $R(x)$ is called the remainder with $0 \leq \deg R(x) < m$. Alternatively, we can write this as 
+    \[
+    P(x) = G(x)Q(x) + R(x).
+    \]
+\end{definition}
+
+\begin{example}{(AoPS Volume 2)}
+Find the remainder when $x^{13}+1$ is divided by $x-1$.
+\end{example}
+By the definition of polynomial division, we have that
+\[
+    (x^{13}+1) = (x-1)Q(x) + R(x).
+\] Notice that $\deg R(x) = 0$, which means it's a constant so $R(x)=c$, if we plug in $x=1$, then
+\[
+(2)=(0)Q(1) + c \Longrightarrow c=2.
+\]
+This problem demonstrates a powerful technique we can use to find the remainder, plugging in numbers. We're able to entirely ignore the quotient $Q(x)$ if we plug in the roots of the divisor. Let's use this for another problem.
+\begin{example}
+    Find the remainder when $x^{13}+1$ is divided by $x^2+x-2$
+\end{example}
+First, we factor our divisor as $x^2+x-2 = (x+2)(x-1)$. As the degree of our divisor is 2, this gives us that $\deg R(x) < 2$. Which means that it is a linear polynomial. Let $R(x) = ax+b$, then
+\begin{equation*}
+    \begin{aligned}
+    -2^{13} + 1  & = (0)Q(-2) + R(-2) \Longrightarrow -2^{13}+1 = -2a + b \\
+        1^{13} + 1 & = (0)Q(1) + R(1) \Longrightarrow 2 = a+b.
+    \end{aligned}
+\end{equation*}
+Plugging in these 2 roots gives us a system of equations: $-2a+b = -2^{13} + 1$ and $a+b = 2$. We can solve by normal means and get that $a=2731, b = -2729$, $R(x) = 2731x - 2729$. Hopefully you can see how this would generalize to higher degree divsiors, a cubic divisor would result in a 3 variable system and so on, knowing this process allows us to easily solve a class of polynomial division problems. 
+
+\subsection{Synthetic Division}
+I want to put this topic by itself as it is rather esoteric and difficult to remember at first but when learnt will become one of your strongest tools for polynomial problems. The use of synthetic division is that it allows us a quick way to root test, giving us a way to quickly calculate $\frac{p(x)}{x-r}$ which allows us to determine whether $r$ is a root of $p(x)$ and what the quotient of the 2 polynomials will be. Let me give an example to explain the algorithm. Let $p(x) = 2x^3+3x^2-5x+6$ and let's test whether $2$ is a root of the polynomial. For synthetic division, we write the following box where the root we are testing is on the left and the coefficients of the polynomial are written on the right for organizational purposes
+\[
+\begin{array}{r|rrrr}
+2 & 2 & 3 & -5 & 6 \\
+\hline
+\end{array}
+\]
+From here, drop down the leading coefficient so your box will look something like 
+\[
+\begin{array}{r|rrrr}
+2 & 2 & 3 & -5 & 6 \\
+  &   &  &  & \\
+\hline
+ & 2 & & & .\\
+\end{array}
+\]
+Multiply the root by the leading coefficient and add it below the 3 So
+\[
+\begin{array}{r|rrrr}
+2 & 2 & 3 & -5 & 6 \\
+  &   & 4 &  & \\
+\hline
+ & 2 & & & .\\
+\end{array}
+\] 
+Add the 2 rows together to get 
+\[
+\begin{array}{r|rrrr}
+2 & 2 & 3 & -5 & 6 \\
+  &   & 4 &  & \\
+\hline
+ & 2 & 7 & & .\\
+\end{array}
+\] 
+Repeat this process until you have filled out the grid, giving us
+\[
+\begin{array}{r|rrrr}
+2 & 2 & 3 & -5 & 6 \\
+  &   & 4 & 14 & 18 \\
+\hline
+ & 2 & 7 & 9 & 24 .\\
+\end{array}
+\] 
+Reading all the numbers on the bottom except the last gives us that our quotient is $2x^2+7x+9$ and the remainder is $24$ (if you're unconvinced, try doing this by polynomial long division or ask wolfram alpha). This process looks strange and confusing but trust me, after you practice this algorithm a few times it becomes much easier and a useful tool you can use. I should note that synthetic division is $\textbf{only}$ made for dividing polynomials by 1 degree polynomials, it can't generalize to higher degree polynomials, please remember this. 
+\subsubsection*{Root Testing}
+We can harness the full power of synthetic division when we use it to test for roots of polynomials. Famously, cubics and higher degree polynomials are extremely tedious to factor, so one way to try to factor higher degree polynomials is to plug in easy numbers and test whether they're roots of the polynomial. We can achieve this with synthetic division.
+\begin{example}
+Factor the polynomial $p(x)=x^3-12x^2+39x-38$
+\end{example}
+There is no easy way to factor this polynomial so we try  guessing roots. Checking $r = \pm 1$, we see that $p(1) = -10$ and $p(-1) = -90$, therfore both are roots. From here we check $r=\pm 2$. We see $p(2) = 0$, which means 2 is a root. Therefore we can use the synthetic division algorithm
+\[
+\begin{array}{r|rrrr}
+    2 & 1 & -12 & 39 & -38 \\
+     & & 2 & -20 & 38 \\
+     \hline
+     & 1 & -10 & 19 & 0 
+\end{array}
+\]
+Our quotient is $x^2-10x+19$ and we can find the roots of by using the quadratic formula, giving us $5\pm\sqrt{6}$. Therefore our complete factorization is $(x-2)(x-5-\sqrt{6})(x-5+\sqrt{6})$. This process we use for guessing the roots might bring up a question; how do we know what roots to guess? Well, the easiest roots to guess are rational ones so we want to know what are all the possible rational roots of a given polynomial.
+\begin{theorem}{(Rational Root Theorem)}
+Given a polynomial $p(x)$ with integer coefficients,  leading coefficient $a$, and constant term $c$, then if a root $r\in \QQ$ and $r = \frac{m}{n}$, then $n$ divides $a$ and $m$ divides $c$.
+\end{theorem}
+
+Intuitively, what the Rational Root Theorem is saying, is that if $r$ is a root then we have that $(nx-m)$ divides $p(x)$. So $p(x) = (nx-m)Q(x)$ where $Q(x)$ just refers to the polynomial of the rest of the roots of $p(x)$. Therefore the leading coefficient $a$ would be $ a= n \cdot (\textit{something})$ and the constant would be $ c= m \cdot (\textit{something})$. 
+\begin{example}
+Determine all possible rational roots of $3x^3-2x+x+6$.
+\end{example}
+By the Rational Root Theorem, we have that the denominators of any rational roots must divide 3. This gives us that $\{\pm 1, \pm 3\}$ are our possible choices for the denominator. For the numerator, we see that it must divide 6 so it is in the set $\{ \pm 1,\pm 2, \pm 3, \pm6\}$;  by the Rational Root Theorem, the denominator must divide $3$ so it must be in the set $\{\pm 1, \pm 3 \}$. Thus the possible ratinonal roots of this polynomial are
+\[
+ \{ \pm 1, \pm 2, \pm 3,\pm \frac{1}{3}, \pm \frac{2}{3} \}
+\]
+While this does give us 10 rational roots we would need to check, in practice question writers understand how tedious checking all 10 roots can be so they will typically give whole number roots or make the roots some of the easiest numbers you would check such as $\pm 1$ and $\pm 2$.
+
+\subsection*{Stes to Root Finding}
+To end this section, I'll give a quick summary and approach as to how you would go about trying to guess the roots of a higher degree polynomial
+\begin{itemize}
+    \item \textbf{Turn the coefficients of the polynomial into integers:} The Rational Root Theorem is only possible because the coefficients of the polynomial are integers. If some of the terms are rationals, multiply by the denominators to get integer coefficients. Otherwise, if some of the coefficients are irrational, well, you're out of luck; the rational root theorem cannot be applied \footnote{while root finding can be done on irrational numbers the methods are question specific and involve educated guesses and tricky substitutions}.
+    \item \textbf{Apply the Rational Root Theorem}: Make sure to start with small roots and work your way up to larger roots. If you find a root, use synthetic division to simplify your polynomial.
+    \item \textbf{Other Methods:} If RRT fails, then try other methods such as substitutions. Otherwise, make sure to read the problem statement carefully. Some problems will ask something along the lines of "find the sum of the roots", this is something you can do without even finding the roots using the methods discussed in section 1.1, and a lot of problems will purposely make the roots practically impossible to find in order to force you to use them.
+\end{itemize}
+\section{Further Reading}
+\begin{itemize}
+    \item \textit{The Art of Problem Solving Volume 2}; Chapter 6
+    \newline \indent This chapter covers polynomials at large, while there's a good bit of overlap in content with this handout, I would recommend reading this to give you a stronger base
+    \item \textit{The Art of Problem Solving Volume 2}; Chapter 15 (Specifically focus on the Binomial Theorem)
+    \newline \indent While this chapter covers combinatorics (which we'll cover in a few weeks) it specifically brings up the binomial theorem which is an important tool in comp math, especialy for polynomials
+    \item \textit{Euclid's Orchard}; \url{https://tinyurl.com/4vcas5de} 
+    \newline \indent A really nice long handout that covers polynomials, more advanced than what is covered in this handout but it doesn't assume any prerequisites.
+    \item \textit{YCMA (Youth Conway Math Association) Polynomial Handout}; \url{http://tiny.cc/geir001} (AIME Level)
+    \newline \indent YCMA has some nice handouts targeted towards the AIME level, while the problems are more advanced I would recommend these handouts if you're interested in more challenging problems (though they do assume you already have a good grasp on competition math as a prerequisite)
+\end{itemize}
+\section{Exercises}
+
+\begin{exercise}
+    Use Vietas formula to find the equations for the coefficients in terms of te roots for a 4th degree polynomial
+\end{exercise}
+\begin{exercise}
+    (AMC 10A) For how many values of $k$ will the polynomial $x^2-kx+36$ have 2 \textit{distinct} integer roots
+\end{exercise}
+\begin{exercise}
+    (AoPS Vol 2) Find all the roots of $2y^4-9y^3+14y^2+6y-63=0$
+\end{exercise}
+\begin{exercise}
+    (AoPS Vol 2) Find all values of $n$ which will make $x+2$ a factor of $x^3+3n^2+nx+4$.
+\end{exercise}
+\begin{exercise}
+    (AMC 10A) Both roots of the quadratic $x^2-63x+k$ are prime numbers. Compute the number of possible values of $k$
+\end{exercise}
+\begin{exercise}
+    (AMC 10) Let $f$ be a function such that $f(\frac{x}{3}) = x^2+x+1$, find all values of $z$ such that $f(3z)= 7$.
+\end{exercise}
+\begin{exercise}
+    (PUMaC Algebra) Compute all values of $b$ such that the difference between the maximum and minmum of $f(x)=x^2-bx-1$ on the interval [0, 1] is 1.
+\end{exercise}
+\begin{exercise}
+    (AoPS Vol 1) Solve for $x$: 
+    \[
+     \sqrt{x+\sqrt{x+11}}+\sqrt{x-\sqrt{x+11}} = 4
+    \]
+\end{exercise}
+\begin{exercise}
+    (AoPS Vol 2) Polynomial $P(x)$ contains only terms of odd degree. When $P(x)$ is divided by $x-3$, the remainder is 6. What is the remainder when $P(x)$ is divided by $x^2-9$?
+\end{exercise}
+\begin{exercise}
+    (AIME I) Compute the product of the \textit{nonreal}   roots of $x^4-4x^3+6x^2-4x=2005$.
+\end{exercise}
+\begin{exercise}
+    (AMC 10B) Let $P(x)$ be a polynomial with rational coefficients such that when $P(x)$ is divided by the polynomial $x^2+x+1$, the remainder is $x+2$, and when $P(x)$ is divided by the polynomial $x^2+1$, the remainder is 2x+1. There is a unique polynomial of \textit{least} degree with these 2 properties. What is the sum of the squares of the coefficients.
+\end{exercise}
+\begin{exercise}
+    (AMC 10A) Let $P(x)$ be a polynomial with \textit{minimal} degree with the following properties
+    \begin{itemize}
+        \item $P(x)$ has a leading coefficient of 1
+        \item 1 is a root of $P(x)-1$
+        \item 2 is a root of $P(x-2)$
+        \item 3 is a root of $P(3x)$
+        \item 4 is a root of 4$P(x)$
+    \end{itemize}
+\end{exercise}
+\begin{exercise}
+    (AMC 10A) A quadratic polynomial with real coefficients and leading coefficent 1 is called \textit{disrespectful} if the equation $p(p(x))=0$ is satisfied by exactly 3 real numbers. Among all disrespectful quadratic polnymoials, there is a unique polynomial $\widetilde{p}(x)$ for which the sum of the roots is maximized. What is $\widetilde{p}(1)$?
+\end{exercise}
+\end{document}

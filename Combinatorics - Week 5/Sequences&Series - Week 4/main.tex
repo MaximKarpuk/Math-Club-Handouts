@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+\usepackage[sexy, fancy]{evan}
+\usepackage{hyperref}
+\begin{document}
+
+\title{Week 4 - Sequences \& Series}
+\maketitle
+
+\section*{Introduction}
+
+\subsection*{Notation}
+In this section I want to define som notation that I'll encorporate much more often from now on and is essential to this weeks lesson: sequences, summation notation ($\sum$), and product notation ($\prod$). 
+\vspace{0.5cm} \newline First, I'll start with sequences. A sequence is rather simple: it's just a list of numbers. 
+We formally define a sequence $\{ a_n \}$ to be a list of numbers $a_1, a_2, a_3, a_4 \cdots$ where individual elements $a_i$ can be any type of number. They're typically defined by some sort of formula or relationship, but not always. One example is the fibonacci sequence $f_1, f_2 = 1; \quad f_{n} = f_{n-1} + f+{n-2}$. This sequence is defined
+recursively, this means that we define new elements based on previous elements. In this case we have the first few elements in the sequence are $1, 1, 2, 3, 5, 8$ and so on. We can also define sequences exactly; so the sequence is defined by a given formula, very similar to a function though the inputs are only whole numbers. A quick example would be the powers of 2. We can define
+$a_n = 2^n$, so the first few elements staring from $a_0$ would be $1, 2, 4, 8, 16$. \vspace{0.5cm} \newline Now, we can define the other notation $\sum$. Say we have a sequence $\{a_n\}$ and we wish to find $a_1 + a_2 + a_3 + \cdots a_n$ where $n \in \ZZ$ (remember $\in$ just means "in" and $\ZZ$ is the set of integers).
+To write this with summation notation, we would do 
+\[
+\sum_{i=1}^n a_i.
+\] $i$ is what is known as an index. We use it as a placeholder value to show that we repeatedly want to sum values of the function from the bottom value, which in this is 0 to the top value which is $n$. Let's use an actual example. Say we want to sum the first 30 positive even numbers. 
+We would get that the expression with summation notation would be
+\[
+\sum_{i=1}^{30} 2i = 2 + 4 + \cdots + 60 = 930.
+\] Here, $a_i=2i$ represents the $i$th even number. \newpage Now I'll talk about product notation which put simply is just $\sum$ but for multiplication. I'll illustrate it with an example. It's well known that $n! = n \cdot (n-1) \cdots \cdot 2 \cdot 1$. We can write this in product notation as,
+\[
+\prod_{j=1}^n j = 1 \cdot 2 \cdot \cdots \cdot (n-1) \cdot n = n!.
+\] Here $j$ is our index variable and we see that what we're doing is taking the function defined on the right hand side of $\prod$ (in this case just $f(j)=j$) and multiplying the outputs on the integers from $1$ to $n$. If you're a little familiar with coding, these 2 symbols are very analagous to a for loop.
+
+\section{Theory}
+
+\subsection{Arithmetic Sequences}
+An arithmetic sequence is defined $a_n = a_0 + n \cdot d$ and recurisvely as $a_n = a_{n-1} + d$. An example would be a sequence with $a_0 = 2$, $d=3$, which gives us the first few elements are $2, 5, 8, 11, 14$. Intuitively, we can think of this sequence as 2 plus a multiple of 3. Importantly, we can also solve backwards for elements before $a_0$; so, $a_{-1} = -1, a_{-2} = -4, a_{-3} = -7$. One interesting property of these sequences is that if we pick a different starting point, so if we pick $a_0 = -4$ and $d=3$, then this still defines the same sequence, we see the first few elements are $-4, -1, 2, 5$, and so on.  
+
+\subsection*{Arithmetic Series}
+In general a series is just the sum of elements in a sequence. The goal of this section is to find an exact formula for the series of an arithmetic series $\{a_n\}$. We start with the simplest arithmetic sequence we can think of.
+\begin{example}
+Find a formula to calculate
+\[
+    \sum_{i=1}^n i = 1 + 2 + 3 + \cdots  + n.
+\]
+\end{example}
+To find the sum, we use addition to our advantage. Notice, that if we group the terms so the sum will be $(1+n) + (2 + n-1) + (3+ n - 2) + \cdots $. Each group adds to $n+1$, as there's $\frac{n}{2}$ (Even if $n$ is odd the sum still works out, think about why) groups the sum calculates to $\frac{n(n+1)}{2}$. The sequence $a_n = \frac{n(n+1)}{2}$ is common enough to see that it is called the \textit{Triangular Numbers}. To sum an arithmetic sequence, let's see if we can utilize the same idea. 
+The series $\sum_{i=0}^n a_i$ can be group the same way as $(a_0 + a_n) + (a_1 + a_{n-1}) + (a_2+a_{n-2}) + \cdots$. Well each term $a_i$ is added with another term, $a_{n-i}$ and we see that $a_i + a_{n-i} = 2a_0 + n \cdot d$. This is true for all $i$, in bettwen $0$ and $n$. We can therefore use this idea to sum this series, as there are $\frac{n}{2}$ groups which all sum to $2a_0 + n \cdot d$, the arithmetic series sums to 
+\[
+\sum_{i=0}^n a_i = \frac{(n+1)(a_0 + a_n)}{2} = \frac{(n+1)(2a_0 + n d)}{2}.
+\]
+
+\begin{exercise}
+A grocer makes a display of cans in which the top row has one can and each lower row has two more cans than the row above it. If the display contains $100$ cans, how many rows does it contain?
+\end{exercise}
+
+\subsection{Geometric Series}
+A geometric sequence is very similar to an arithmetic sequence, except instead of add a common difference, we multiply a common ratio, so it's basically an arithmetic sequence but for multiplication. We define a geometric sequence $\{a_n\}$ using the formula $a_n = r^n a_0$ and recursive definition $a_{n+1} = r a_n$. Here we have 2 parameters, the common ratio $r$ and the initial value of the sequeunce, $a_0$. The finite geometric series is 
+\[
+    \sum_{i=0}^n r^i a_i = a_0 \frac{r^{n+1} - 1}{r-1}.
+\]
+Unlike arithmetic series, we can actually have an infinite geometric series, and interestingly if $|r| < 1$, it converges to a real number. The infinite series is actually quite common to see so here it is 
+\[
+\sum_{i=0}^\infty r^i a = \frac{a}{1-r}; \quad \text{if } |r| < 1.
+\]
+It's important to see why $|r| < 1$ has to be a condition. It is a condition, because when $|r| < 1$, then $r^n$ goes to 0 as $n$ gets larger and larger, but when $|r| \geq 1$, $r^n$ stays the same or grows larger, diverging to $\pm \infty$. Knowing the infinite series might seem fairly useful but it is suprsingly very useful in a lot of math, suprisingly a lot of discrete math and probability.
+These 2 types of sequences are commonly seen, especially geometric sequences as they are very powerful at modeling different scenarios in math and commonly appear in competitions. I cannot stress this enough, \textbf{memorize them}.
+\begin{example}{(AMC 10)}
+The sum of an infinite geometric series is a positive number $S$, and the second term in the series is $1$. What is the smallest possible value of $S$?
+\end{example}
+If the second term of the geometric series is $1$ then it's equal to $ar$ so the first term is $\frac{1}{r}$; the sum of the infinite series is thus $\frac{1}{r(1-r)}$. The minimum value occurs when the denominator reaches its maximum, therefore completing the square of the quadratic, $-(r-\frac{1}{2})^2+\frac{1}{4} \Longrightarrow \text{max } = \frac{1}{4}$. So the minimum value is $4$.
+
+\begin{exercise} 
+    Use the ideas from the handout I posted last week, General Probelm Solving Techiques \& Tips, to derive the formulas for the geometric infinite series and finite series. 
+\end{exercise}
+
+\begin{exercise}
+(AIME) Two distinct, real, infinite geometric series each have a sum of 1 and have the same second term. The third
+term of one of the series is $\frac{1}{8}$, and the second term of both series can be written in the form $\frac{\sqrt{m} - n} {p}$, where
+$m$, $n$, and $p$ are positive integers and $m$ is not divisible by the square of any prime. Find $100m + 10n + p$.
+\end{exercise}
+\subsection{Other Sequences \& Series}
+For dealing with other sequences and series, there's no method that works in every case. Try to manipulate the series or sum to look like some sort of arithmetic sum or a geometric sum. If that is impossible, or doesn't work, the methods detailed in section 2, are the next best approach.
+
+\begin{itemize}
+\item { $\displaystyle \sum_{i=0}^\infty n x^n = \frac{x}{(1-x)^2}$. This is fairly common in AMC 12 and AIME problems. If you know a bit of calculus, you can derive this formula using the derivative of the infinite geometric series.}
+\end{itemize}
+\section{Methods}
+
+\subsection{It Came to Me In a Dream}
+The most obvious method to finding an exact formula for a sequence $\{a_n\}$ or a sum $\sum_i a_i$ would just be to guess. If you calculate the first few terms in a sequence or sum, this might be enough for you to be able to guess to actual formula. These problems are not too rare and this is often a good first approach to problems
+asking you to evaluate sums.
+\begin{exercise}
+The sum
+\[
+\frac{1}{2!} + \frac{2}{3!} + \frac{3}{4!} + \cdots + \frac{2021}{2022!}
+\]
+can be written as $a-\frac{1}{b!}$ where $a$ and $b$ are positive integers, what is $a+b$?.
+\end{exercise}
+\subsection{Over and Over Again}
+A common theme to see in problems is cycles; sequences repeat elements. The easiest way to spot cycles in sequences is to repeat the same idea in the previous section: calculate the first few elements and see if it repeats. 
+\begin{example}
+Find the units digit of $7^{2023}$
+\end{example}
+Although this a number theory problem, you don't need any number theory to solve this problem. In this case, the sequence we care about is $a_n = 7^n$, and specifically we only care about the units digit of it. Calculating the first few units digits of the terms, $7, 9, 3, 1, 7, 9, 3, 1, \cdots$. A useful trick to note here is that to find the next unit digit in the number, we only need to multiply the previous unit digit by 7 and use the new units digit from that product. In this sequence we see that every 4 elements, the unit digits repeats. Extrapolating this trend all the way to 2023, the units digit would be 3.
+\begin{exercise}
+Find the units digit of $3^{1002}$.
+\end{exercise}
+\subsection{Grouping \& Telescoping Series}
+This section focuses on the same idea we used to find the sum of arithmetic sequences. We can group terms together to evaluate series. It helps to begin with an example. 
+\begin{example}
+Evaluate the sum$ \displaystyle \sum_{n=1}^{99} \frac{1}{n(n+1)}$
+\end{example}
+This sum makes us have to introduce a new technique: partial fraction decompoisiton. The idea behind this technique is we wish to decompose the fraction $\frac{1}{n(n+1)} = \frac{A}{n} + \frac{B}{n+1}$ as this allows us to simplify our sum. Multipying through by $n(n+1)$, the equation is equivalent to $1 = A(n+1) + B(n)$. Plugging in specific values of $n$, we can cancel out some of the variables to simplify this problem. So if we plug in $n=0$ we get $A=1$ and plugging in $n=-1$, we have $B=-1$. This means that $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$. Now, this is probably a decomposition you could be able to quickly see,
+but in general if you have a rational polynomial, so the fraction looks like $\frac{P(x)}{Q(x)}$, we can normally decompose these polynomials into sums of simpler fractions. In our case we see that this decomposition gives us
+\[
+\sum_{i=1}^{99} \frac{1}{n(n+1)} = \sum_{i=1}^{99} \frac{1}{n} - \frac{1}{n+1} = (1 - \frac{1}{2}) + (\frac{1}{2} - \frac{1}{3}) + (\frac{1}{3} - \frac{1}{4}) \cdots .
+\]
+See the key observation? In our sum we are subtracting $\frac{1}{n+1}$ in one term and in the very next we are adding it back to the sum. These terms cancel out. All these duplicate terms will cancel out which will leave only 2 terms in our sum, giving us the answer $1 - \frac{1}{100} = \frac{99}{100}$ because these 2 terms are only counted once in the sum. This idea of telescoping is rather general and can be applied even further than just sums.
+\begin{example}
+Calculate the product
+\[
+ \prod_{n=2}^{15} \frac{n^2-1}{n^2}
+\]
+\end{example}
+Note that the term $\dfrac{n^2-1}{n^2} = \bigg( \dfrac{n-1}{n} \bigg) \bigg ( \dfrac{n+1}{n} \bigg)$. Evaluating the product using this expanded form, we see $\frac{1}{2} \cdot \frac{3}{2} \cdot \frac{2}{3} \cdot \frac{4}{3} \cdot \frac{3}{4} \cdots $. Observe that when the index equals $n-1$ or $n+1$ there is a $n$ term in the numerator. This means $n$ is coutned twice in both the numerator in the denominator for $3 \leq n \leq 14$. These terms all telescope so our product simplifies to $\frac{3}{4} \cdot \frac{16}{15} = \frac{4}{5}$.
+\begin{exercise}
+Decompose the fraction $\frac{x^3-2}{x^2-5x+6}$ using partial fraction decomposition.
+\end{exercise}
+
+\begin{exercise}
+Evaluate the sum $\displaystyle \sum_{n=1} ^ {100} \frac{1}{\sqrt{n+1} - \sqrt{n}}$ (for this problem, you should know how to rationalize the denominator of a fraction).
+\end{exercise}
+\subsection{Other Methods}
+Some other techniques that I haven't mentioned because they're more advanced: multiplying seires, generating functions, combinatorial arguments, roots of unity filter, \& number theortic arguments. A lot of other problems also utilize several techniques in one series. I've attached some extra resources in section 3 for anyone interested in these methods.
+\subsection{In Summary}
+Always keep in mind that these are not the only methods for evaluating sequences in series. The study of special sequences and series is a massive area of math that continues to grow. 
+\section{Further Readings}
+I attached some further readings for learning more about sequences and series. The latter ones are typically going to be more advanced but contain a lot of material that is seen in more advanced competitions.
+\begin{itemize}
+ \item{\textit{Art of Problem Solving Volume 1}; chapter }
+ \item {\textit{Art of Problem Solving Volume 2}; chapter }
+ \item { \href{http://yu-dylan.github.io/euclid-orchard/Handouts/Sequences_and_Series_in_the_AMC_and_AIME.pdf}{\textit {Euclids Orchard}}; Covers similar material as this handout but it has some more advanced problems }
+ \item {\href{https://www2.math.upenn.edu/~wilf/gfology2.pdf}{\textit{Generating Functionology}}; covers the theory behind generating functions and plenty of other tricks for evaluating series (requires calculus)}
+ \item {\href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Evan Chen Handouts}; great handout. Focused at a more advanced level but covers a lot of more methods for more difficult competitions}
+\end{itemize}
+
+
+\end{document}
