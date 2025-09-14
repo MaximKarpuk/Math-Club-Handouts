@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[sexy, fancy, mdthm]{evan}
+\usepackage{hyperref}
+\usepackage{polynom}
+
+\begin{document}
+
+\title{Geometry Survival Guide}
+\maketitle
+
+\section*{What's the Purpose of This?}
+\par So, why am I making this long document? Well, I likely won't be able to cover
+much geometry in the club (because there's too much to learn and drawing diagrams takes time), so I decided to compile a general list of all the theorems and techniques
+for competition math you would probably need to know for geometry. Use this as a reference to see what you need to learn, all the exercises
+here are not at all required but are good for improving your understanding. Also, if you're wondering what compelled me to make such a large document, it wasn't because im so altruistic (although I am),  it was partly so I could do some
+review for AMC and AIME this year and also to learn Asymptote (makes geometry figures).
+
+\tableofcontents
+\section{Reading}
+I'll give the standard recommendations first; AOPS Vol. 1 \& 2 have several chapters dedicated to geometry and are good sources for learing most of the material. \textit{A Beautiful Journey Through Olympiad Geometry}, while this book is proof based, it covers geometry from the beginning rather well
+and the early chapters are a good read even if you only plan on doing computational problems. 
+\subsection*{Handouts}
+A list of handouts that I found useful myself when learning the material or reviewing.
+\begin{itemize}
+    \item
+\end{itemize}
+\section{Notation}
+\begin{itemize}
+    \item $\triangle ABC$ denotes a triangle with vertices $A$, $B$, and $C$ 
+    \item $\overline{AB}$ denotes a line segment with vertices $A$ and $B$
+    \item $\overline{AB} \parallel \overline{CD}$ denotes $\overline{AB}$ is parallel with $\overline{CD}$
+    \item $\overline{AB} \cap  \overline{CD}$ denotes the intersection of line segments $\overline{AB}$ and $\overline{CD}$
+    \item $[ABC]$ denotes the area of $\triangle ABC$.
+\end{itemize}
+\section{Necessary}
+This document has a lot of information, but if there's only a few things to take away from it, it would be this first section. This first section should outline you the tools
+to at least approach geometry problems. A brief description of the content in this section is that most of the content in this section should be covered in Honors Geometry with a few extra topics that are touched on. 
+\subsection{Triangles}
+\subsubsection*{Properties}
+\begin{itemize}
+    \item The angles in a triangle add to $180^{\circ}$.
+    \item (Triangle Ineqality) if $BC=a$, $AC=b$, $AB=c$ and $a < b < c$, then $a+b > c$. 
+\end{itemize}
+\subsubsection*{Congruent \& Similar}
+\begin{itemize}
+    \item 2 triangles are congruent ( $\cong$), if they are the same triangle
+    \item 3 conditions for congruency:
+     \begin{itemize}
+            \item (SSS) - All sides are the same
+            \item (ASA) - 2 angles and the side adjacent to both angles are equal
+            \item (SAS) 2 sides and the angle inbetween are equal
+            \item (AAS) - 2 angles and the next side match
+            \item \textbf{WARNING: } ASS, 2 sides and an angle not inbetween the two are equal, does \textbf{NOT} imply congruency or similarity
+        \end{itemize}
+    \item 2 triangles are similar ($\sim$) if one triangle is a scaled version of the other. 
+    \item 1 conditions for similarity:
+     \begin{itemize}
+            \item (AA) - 2 angles in both triangles are equal (third can be calculated)
+        \end{itemize}
+    \item if $\triangle ABC \sim \triangle XYZ$, and the scale ratio is $r$, then the scale ratio of the areas, $[ABC] : [XYZ]$, is $r^2$.
+\end{itemize}
+\subsubsection*{Area}
+\begin{itemize}
+    \item $[ABC]=\frac{1}{2}bh$ where $b$ is the base and $h$ is a altitude, or height.
+    \item $[ABC]=\frac{1}{2}ab sin \theta$ where $a$ and $b$ are side lengths of the triangle and $\theta$ is the angle inbetween.
+\end{itemize}
+\subsection{Circles}
+
+\subsubsection*{Definition}
+\subsubsection*{Angles}
+\subsubsection*{Area}
+\subsection{Angle Chasing}
+\subsubsection*{Do It}
+\subsection{Quadrilaterals} 
+\subsubsection*{Properties}
+\subsubsection*{Types of Quadrilaterals}
+\subsection{Polygons}
+\subsubsection*{Properties}
+\subsubsection*{Area}
+\subsection{Analytic}
+\subsubsection*{Coordinates}
+\subsection{Basic Trig}
+\subsubsection*{SOH-CAH-TOA}
+\subsubsection*{Properties}
+\subsubsection*{Using it}
+\subsection{3D Geometry}
+\subsubsection*{Shapes}
+\subsubsection*{Formulas}
+\section{AMC 10}
+\subsection{Area Formulas}
+\subsubsection*{Special Ones}
+\subsection{More Triangles}
+\subsubsection*{Theorems}
+\subsection{Cyclic Quadrilaterals}
+\subsubsection*{Definition}
+\subsubsection*{Theorems}
+\subsection{Power of a Point}
+\subsubsection*{Definition \& Formulas}
+\subsection{Trigonometry}
+\subsubsection*{More Formulas}
+\subsubsection*{Properties}
+\subsection{Analytic Geometry}
+\subsubsection*{Combining with synthetic}
+\subsubsection*{Special lines}
+\section{AMC 12}
+\subsection{Even more Triangles}
+\subsubsection*{Properties}
+\subsection{Colinearity}
+\subsubsection*{Theorems}
+\subsection{Complex Numbers}
+\subsubsection*{Applications to Geometry}
+\subsection{Vectors}
+\subsubsection*{Definition \& Formulas}
+\subsubsection*{Applications to Geometry}
+\subsection{3D Geometry}
+\subsubsection*{Definitions}
+\subsubsection*{Theorems}
+\subsection{Mass Points}
+\section{AIME}
+\subsection{Barycentric Coordinates}
+\subsection{Projective Geometry}
+\subsection{Olympiad Geometry}
+
+\end{document}

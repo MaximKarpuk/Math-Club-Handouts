@@ -1,0 +1,221 @@
+\documentclass[11pt]{article}
+\usepackage[sexy, fancy]{evan}
+\usepackage{hyperref}
+
+\renewcommand{\arraystretch}{2}
+
+\begin{document}
+
+\title{General Problem Solving Techniques \& Tips}
+\maketitle
+
+\section*{Introduction}
+Since Labor Day is a Monday, I've decided to not introduce any new theory but instead compile a list of general problem solving tecniques, mostly focused on algebra, and a lot of the boring
+stuff that you need to solve problems. Some of the techniques listed involve topics that I haven't talked about yet, but 
+this pdf should be a useful reference for later and for those who already know the topics. For the future, I'm currently in the process of making a similar document for geometry but that will probably take a while.
+
+\section{Big List of Factorizations}
+I've compiled a large list of factorizations that you should know and the level of competition which you are expected to know it, the ones that are unlabled are required to know, no matter your level of competition.
+Though don't be pressured to memorize these as quickly as possible, but keep these in mind and try to learn more and more of these over the 
+\newline
+\[
+\begin{array}{r|r}
+    \hline
+    & (\text{Difference of Squares}) \qquad x^2-y^2 = (x-y)(x+y) \\
+    \hline
+    & (\text{Difference of Cubes})\qquad x^3-y^3 = (x-y)(x^2+xy+y^2) \\
+    \hline
+    & (\text{Sum of Cubes}) \qquad x^3+y^3 = (x+y)(x^2-xy + y^2) \\
+    \hline
+    & \dfrac{x^n-1}{x-1} = (x^{n-1}+x^{n-2}+\cdots+1) \\
+    \hline
+    & (\text{Triangular Numbers}) \qquad \displaystyle \sum_{i=1}^n i = \dfrac{n(n+1)}{2} \\
+   \hline  
+    & (\text{Geometric Series}) \qquad \displaystyle \sum_{i=0}^n ar^i = a \cdot \dfrac{r^{n+1}-1}{r-1} \\
+    \hline
+    & (\text{Simon's Favorite Factoring Trick}) \qquad (x+1)(y+1) = xy+y+x+1 \\
+    \hline
+   \text{AMC 10} &   (x+y+z)^2 = x^2+y^2+z^2+2(xy+xz+yz) \\
+   \hline
+   \text{AMC 10} & (\text{Binomial Theorem; } n=3)  \qquad (x+y)^3= x^3 + 3x^2y + 3y^2x + y^3 \\
+   \hline
+   \text{AMC 10} & (\text{Binomial Theorem; } n=4) \qquad (x+y)^4 = x^4+4x^3y + 6x^2y^2 + 4xy^3 + y^3 \\
+   \hline
+   \text{AMC 10} & (\text{Sum of Consecutive Squares}) \qquad \displaystyle \sum_{i=1}^n i^2 = \dfrac{n(n+1)(2n+1)}{6} \\
+    \hline
+    \text{AMC 12} & (x+y+z)^3 = x^3+y^3+z^3 + 3(x^2(y+z)+y^2(x+z)+z^2(x+y))+6xyz \\
+    \hline
+    \text{AMC 12} & x^3+y^3+z^3 - 3xyz = (x+y+z)(x^2+y^2+z^2-xy-xz-yz) \\
+    \hline
+    \text{AMC 12}&  \dfrac{x^{2n+1}+1}{x+1} = x^{2n} - x^{2n-1} + x^{2n-2} - \cdots \\
+    \hline
+    \text{AMC 12} & (\text{Sum of Consecutive Cubes}) \qquad \displaystyle \sum_{i=1}^n i^3 = \bigg( \dfrac{n(n+1)}{2} \bigg)^2 \\
+    \hline
+    \text{AMC 12} & (\text{Sophie Germain Identity}) \qquad  x^4+4y^4 = (x^2-2xy+2y^2)(x^2+2xy+2y^2) \\
+    \hline
+
+\end{array}
+\]
+
+\section{Some Special Numbers}
+It's useful to know some special numbers for problems as a lot of problems require you to know if a number is prime, a square, etc. Again, don't feel pressured to memorize this all right now
+but as this semester goes by, try to memorize a good portion of the numbers listed here.
+\begin{itemize}
+    \item Know your primes. I'd say in general it's good to know all the prime numbers less than 200. Generally, if competitions require you to know
+        if a large nubmer is prime, they will either explicity tell you or you would be expected to check if it is indeed prime (by testing for divisors) 
+    \item Know your squares. I'd say that knowing all 31 squares less than 1,000 is good enough.
+    \item Know special powers. Powers of 2 are very common to see in competition so it is useful to be able to recognize them. Try memorizing the first 13 powers of 2. Other numbers are less common to see but you should still
+        memorize a handful of them. Know your powers of 3, I'd say up to the first 7 and same with powers of 5, know the first 5.
+    \item Know your year numbers. A very common theme in competition problems is to include the year number in the problem. It is likely that 
+    the problems could include knowing the diviors of the year number. This year it will be $2025=45^2$ which is especially special. Know the prime factorization of the year number and a few of the surrounding years.
+    \item This one is the least necessary to know but you still might get some questions about them. Try to know at least a few Pythagorean triples as it could come in handy for some geometry questions
+\end{itemize} 
+\section{Patterns \& Techniques}
+Here are some common patterns and techniques you will see in problems along with a few tipis
+\begin{itemize}
+\item Don't miss easy problems. This statement seems fairly redundant but it's worth internalizing that easy problems are normally worth the same as the hardest problem on the test. It's very frustrating to spend many hours learning 
+math just to miss simple problems that you really shouldn't have. So, make sure that you have no blatant gaps in your knowledge; some of these simpler problems include solving rate problems, mixture problems, basic statistics, converting units, and a
+ lot of other simple problem types.
+\item Often you'll be asked to simplify a number that's written in a strange form, or some other expression. If you can't see a path at first, one possible approach is to denote the sum you're trying to find as a variable and find it through algebra. Let me give 2 examples
+    \begin{example}{(Week 1 Handout)}
+         Simplify the number $\sqrt[3]{9+\sqrt{80}}+\sqrt[3]{9-\sqrt{80}}$ without a calculator
+    \end{example}
+    Although this problem isn't very practical, it's a good example of algebra. We label the quantity we wish to find $x$, so
+    \begin{equation*}
+        \begin{aligned}
+            \sqrt[3]{9+\sqrt{80}}+\sqrt[3]{9-\sqrt{80}} & = x \\
+            \bigg(\sqrt[3]{9+\sqrt{80}}+\sqrt[3]{9-\sqrt{80}} \bigg)^3 & = x^3 \\
+            18 + 3(x)  & = x^3. 
+        \end{aligned}
+    \end{equation*}
+    From here we can guess and check that $x=3$ is a solution to this equation which means that is our solution. If you're confused why the other 2 roots of this equation would not work, we can move all the terms to one side and divide the cubic by $x-3$, this would give us a quadratic with 2 complex roots, which is clearly not possible.
+
+    \begin{example}{(UNO Math Competition)}
+        Find the value of $\sqrt{12+\sqrt{12+\sqrt{12+\sqrt{\cdots}}}}$
+    \end{example}
+    Label the value of this $x$, using the properties that this a infinitely long square root, we see that $x=\sqrt{12+\sqrt{12+\sqrt{\cdots}}} = \sqrt{12+x}$ (If you don't understand why this is true, remember that there are infinitely many nested square roots). Therefore, we have $x^2-x-12=0$ and $x=4, -3$ are the roots of this quadratic. Clearly $x>0$, so $x=4$ is our answer.
+    The trick of labeling our desired quantity and using algebra is quite common, especially when the problem asks you to simplify a complicated number.
+    \begin{exercise}
+    Evaluate $\sqrt{6+\sqrt{6+\sqrt{6+\sqrt{\cdots}}}}$.
+    \end{exercise}
+
+    \begin{exercise}
+        Derive an exact formula for an infinite geometry series, $\displaystyle \sum_{i=0}^\infty r^i$ and $|r| < 1$. Notably, this formula actually works for basically any number you can think of, even complex numbers, though the condition for it to converge is a little different, $\| r\| < 1$ for $r \in \CC$.
+    \end{exercise}
+\item It's common to see in problems that you might get a quadratic in two variable so something like,  $y^2+x^2+3xy+9+2x=0$. If we're asked to solve for $x$ in terms fo $y$, how do we do so?
+Simply by using the quadratic formula. We can write this as a quadratic of $x$ and we see
+\begin{equation*}
+    \begin{aligned}
+        x^2+(3y+2)x+(y^2+9) &=0 \quad \text{Applying the quadratic formula,} \\
+        x & = \frac{-3y-2 \pm \sqrt{(3y+2)^2-4(y^2+9)}}{2}.
+    \end{aligned}
+\end{equation*}
+It's possible to simplify further from there, but this is enough to illustrate the idea of how to solve for one of the variables (I've actually had to use idea in a AP Physics 1 FRQ, so who says competition math isn't useful).
+\item One type of competition problem I've avoided discussing so far are Diophantine Equations. These are problems where you're given 2 or more variables and you're asked to find all pairs or possibly a special pair of integer solutions to the equation. The simplest method to solve these problems is to solve for an integer on one side of the equationn, we'll call it $n$, and the other side being 
+ the other side being a function of your variables. You then try to factor this function into simpler functions. We can solve from here as the possible choices for each of these functions  will correspond to a divisor of $n$. Let me give an example.
+ \begin{example}
+ Find all pairs of non-negative integers $(a, b)$ such that $12 = a^2-b^2$
+ \end{example}
+ We can factor $a^2-b^2 = (a-b)(a+b)$ which means that as both $a-b$ and $a+b$ are integers, they correspond to divisors of $12$. Now we have a few systems to solve.
+ \[
+ \begin{array}{rrr}
+    \begin{cases}   
+        a-b=1\\
+        a+b=12\\
+    \end{cases} & 
+     &
+    
+    \begin{cases}
+        a-b=2 \\
+        a+b=6 \\
+    \end{cases}  \vspace{0.5cm}\\
+    & 
+    \begin{cases}
+    a-b=3 \\ 
+    a+b=4 \\
+    \end{cases}
+    &
+ \end{array}
+ \]
+
+Which gives us solutions $(\frac{13}{2}, \frac{11}{2}), (4, 2), (\frac{7}{2}, \frac{1}{2})$. The only one of these that is actually an integer solution is $(4, 2)$. Although we can probably find $(4, 2)$ by guessing, this problem was only meant to illustrate how you would apply the idea.
+    \begin{exercise}
+    Find all pairs of integers such that $xy+2x+3y=4$.
+    \end{exercise}
+    \begin{exercise}
+    Find the number of pairs of integers such that $x^2-3xy+7x+2y^2+11y=4$.
+    \end{exercise}
+\item A lot of problems ask you to find a large value in a sequence and only give you the recursive defintion. The most common way to solve these problems is stupidly simple; plug in the first few values of the sequence and guess the pattern. You'll be given a sequence $a_1, \cdots, a_n$ along with a recurrence, after calculating maybe the first 5-6 (or more) elements in the sequence you guess the 
+ exact formuala for $a_n$ and then plug it into the recursion to verify that it's true. 
+ \begin{example}
+    Find $a_{2018}$ if $a_{n+1} = 2a_{n} + 1 \quad (n \geq 0; a_0 = 0)$.
+ \end{example}
+ We can quickly calculate the first few elements of this sequence, $0, 1, 3, 7, 15, 31, 63$. Can we see a pattern? Well, the $2 a_n$ term tells us our series is relatively geometric and if we're familiar with our powers of 2, we can recognize these numbers as $2^n-1$. Indeed, we can verify that $2(2^n -1) + 1 = 2^{n+1} - 1$. This means that $a_n = 2^n - 1$ so our answer is $2^{2018} - 1$.
+\begin{exercise}
+The sum
+\[
+\frac{1}{2!} + \frac{2}{3!} + \frac{3}{4!} + \cdots + \frac{2021}{2022!}
+\]
+can be written as $a-\frac{1}{b!}$ where $a$ and $b$ are positive integers, what is $a+b$?.
+\end{exercise}
+ \item Generalizing your problem statement can be useful in plenty of problems. This means while you may be asked to find a specific value of a function, a sequence, or an element satisfying a special property, but trying to find the formula of the $nth$ element might turn out to be easier. This idea is common to see in counting problem, where you would typically consider a smaller case of your problem to get a sense of what the answer
+    will be and then find a general formula for counting all necessary cases for the problem.
+
+
+\item Whenever you see a problem that includes $x+\frac{1}{x}$ and another term of the form $x^n+\frac{1}{x^n}$ it is useful to try to solve for $x^n+\frac{1}{x^n}$ in terms of $x+\frac{1}{x}$. These can be typically accomplished by repeatedly squaring or cubing $x+\frac{1}{x}$.
+    This is because $x+\frac{1}{x}$ has a nice property that
+    \begin{equation*}
+        \begin{aligned}
+            (x+\frac{1}{x})^2 & = x^2 +\frac{1}{x^2} + 2 \\
+            (x+\frac{1}{x})^3 & = x^3 + \frac{1}{x^3} + 3(x+\frac{1}{x}) \\
+        \end{aligned}
+    \end{equation*}
+    As an example, let's calculate $x^6+\frac{1}{x^6}$ given that $x+\frac{1}{x}=3$
+    \begin{equation*}
+        \begin{aligned}
+            (x+\frac{1}{x})^2  & = x^2+\frac{1}{x^2} + 2 = 9 \Longrightarrow x^2 + \frac{1}{x^2} = 7 \\
+            (x^2+\frac{1}{x^2})^3 & = x^6+\frac{1}{x^6} + 3(7) =  343 \Longrightarrow x^6 + \frac{1}{x^6} = 322. \\
+        \end{aligned}
+    \end{equation*}
+    We can also generalize this defintion by using recursion. Let $a_n = x^n+\frac{1}{x^n}$ which lets us use the fact that
+    \begin{equation*}
+        \begin{aligned}
+            (x^n+\frac{1}{x^n})(x+\frac{1}{x})  & = x^{n+1}+\frac{1}{x^{n+1}} + x^{n-1}+\frac{1}{x^{n-1}}. \\
+            a_n a_1 - a_{n-1}  & = a_{n+1}.
+        \end{aligned}
+    \end{equation*}
+    This means we can recursively define this power sum to calculate new elements. The big takeaway with this idea is that when you see power sums such as $x^n+y^n+z^n$, or the one highlighted above.
+    you can square and multiply small powers of the sum to solve the problem or recursively calculate new elements in the series.
+
+    \begin{exercise}
+    Given that $x+y=2$ and $xy=12$, evaluate $x^5+y^5$.
+    \end{exercise}
+    \item A very common trick to see in logarithm problems is $\log_a(b) = \frac{1}{\log_b(a)}$. We can quickly see why this is true by using change of base. Even so, knowing this property off of the top of your head can be rather useful. A big use of this property is that it allows
+    us to quickly convert a number like $\frac{1}{\log_4(5)}$ to a more usable state, $\log_5(4)$.
+    \begin{exercise}
+    Let $x$, $y$, and $z$ all exceed 1 and let $w$ be a positive number such that $\log_x w = 24$, $\log_y w = 40$, $\log_{xyz} w = 12$, find $\log_z w$.
+    \end{exercise}
+\item A very useful principle to use when trying to do a substitution is symmetry. Let me give an example to illustrate what I mean
+    \begin{example}(AMC 10A)
+        Find the minimum value of 
+        \[
+            (x+1)(x+2)(x+3)(x+4)+2019.
+        \]
+    \end{example}
+    Notice that $1+4=5$ and $2+3=5$. This motivates us to do the substitution $u=x+\frac{5}{2}$ where specifically, $\frac{5}{2}$ is the midpoint. We can thus transform our equation into 
+    $(u-\frac{3}{2})(u-\frac{1}{2})(u+\frac{1}{2})(u+\frac{3}{2}) + 2019$. This allows us to get 2 pairs of difference of squares $(u^2-\frac{9}{4})(u^2-\frac{1}{4})+2019$. From here, we expand the polynomial and complete the square.
+    \begin{equation*}
+        \begin{aligned}
+             u^4 - \frac{5}{2}u^2 + \frac{9}{16} + 2019  & \\
+             (u^2-\frac{5}{4})^2 - \frac{25}{16} + \frac{9}{16} + 2019  & \\
+            u^2 = \frac{5}{4}; \Longrightarrow \text{ minimum value } = 2018.
+        \end{aligned}
+    \end{equation*}
+    The key to solving this problem was to realize that the substitution $u = x+\frac{5}{2}$ gives us the 2 difference of squares. This occurs because we see symmetry occur in our problem. Notice that 1 and 4 are equidistant from the number $\frac{5}{2}$ and so are 2 and 3. This means we can
+    get a symmetrical equation around $\frac{5}{2}$ to occur when we substitute $u=x+\frac{5}{2}$ which would give us the desired difference of squares. You can see often see this substitution trick used in equations with expressions such as $(x+1)(x+2) \cdots (x+n)$.
+
+
+\end{itemize}
+
+
+\end{document}

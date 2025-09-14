@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Reading}{2}{section.3}%
+\contentsline {section}{\numberline {2}Notation}{3}{section.5}%
+\contentsline {section}{\numberline {3}Necessary}{3}{section.6}%
+\contentsline {subsection}{\numberline {3.1}Triangles}{3}{subsection.7}%
+\contentsline {subsection}{\numberline {3.2}Circles}{6}{subsection.11}%
+\contentsline {subsection}{\numberline {3.3}Angle Chasing}{6}{subsection.15}%
+\contentsline {subsection}{\numberline {3.4}Quadrilaterals}{6}{subsection.17}%
+\contentsline {subsection}{\numberline {3.5}Polygons}{6}{subsection.20}%
+\contentsline {subsection}{\numberline {3.6}Analytic}{6}{subsection.23}%
+\contentsline {subsection}{\numberline {3.7}Basic Trig}{6}{subsection.25}%
+\contentsline {subsection}{\numberline {3.8}3D Geometry}{6}{subsection.29}%
+\contentsline {section}{\numberline {4}AMC 10}{6}{section.32}%
+\contentsline {subsection}{\numberline {4.1}Area Formulas}{6}{subsection.33}%
+\contentsline {subsection}{\numberline {4.2}More Triangles}{6}{subsection.35}%
+\contentsline {subsection}{\numberline {4.3}Cyclic Quadrilaterals}{6}{subsection.37}%
+\contentsline {subsection}{\numberline {4.4}Power of a Point}{6}{subsection.40}%
+\contentsline {subsection}{\numberline {4.5}Trigonometry}{6}{subsection.42}%
+\contentsline {subsection}{\numberline {4.6}Analytic Geometry}{6}{subsection.45}%
+\contentsline {section}{\numberline {5}AMC 12}{6}{section.48}%
+\contentsline {subsection}{\numberline {5.1}Even more Triangles}{6}{subsection.49}%
+\contentsline {subsection}{\numberline {5.2}Colinearity}{6}{subsection.51}%
+\contentsline {subsection}{\numberline {5.3}Complex Numbers}{6}{subsection.53}%
+\contentsline {subsection}{\numberline {5.4}Vectors}{6}{subsection.55}%
+\contentsline {subsection}{\numberline {5.5}3D Geometry}{6}{subsection.58}%
+\contentsline {subsection}{\numberline {5.6}Mass Points}{6}{subsection.61}%
+\contentsline {section}{\numberline {6}AIME}{6}{section.62}%
+\contentsline {subsection}{\numberline {6.1}Barycentric Coordinates}{6}{subsection.63}%
+\contentsline {subsection}{\numberline {6.2}Projective Geometry}{6}{subsection.64}%
+\contentsline {subsection}{\numberline {6.3}Olympiad Geometry}{6}{subsection.65}%
